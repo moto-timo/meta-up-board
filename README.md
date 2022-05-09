@@ -31,6 +31,17 @@ Supported hardware versions for Yocto 3.3 (hardknott)
 
 Downloading the meta-up-board BSP layer
 ========================================
+Commit ID:
+
+Poky : 52645c86076482722ccbcbbb065c6f58b3ce3857
+
+meta-intel : 7bcff11829cf1392d9683ad454499a9fff151035
+
+meta-openembedded : 23598caeafce0af0dde8d1339cf5edff021f6823
+
+meta-virtualization : 724e26aaab925372c89080669256feab2d639b05
+
+openembedded-core : d54d7e7b43da621be8e6fcca34feb7b3d49b8160
 
 Download the Hardknott release and enter the poky directory:
 ```
