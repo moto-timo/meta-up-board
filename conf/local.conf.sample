@@ -182,10 +182,10 @@ BB_DISKMON_DIRS = "\
     STOPTASKS,${DL_DIR},1G,100K \
     STOPTASKS,${SSTATE_DIR},1G,100K \
     STOPTASKS,/tmp,100M,100K \
-    ABORT,${TMPDIR},100M,1K \
-    ABORT,${DL_DIR},100M,1K \
-    ABORT,${SSTATE_DIR},100M,1K \
-    ABORT,/tmp,10M,1K"
+    HALT,${TMPDIR},100M,1K \
+    HALT,${DL_DIR},100M,1K \
+    HALT,${SSTATE_DIR},100M,1K \
+    HALT,/tmp,10M,1K"
 
 #
 # Shared-state files from other locations
@@ -213,8 +213,8 @@ BB_DISKMON_DIRS = "\
 # seen. The two lines below enable the SDL backend too. By default libsdl-native will
 # be built, if you want to use your host's libSDL instead of the minimal libsdl built
 # by libsdl-native then uncomment the ASSUME_PROVIDED line below.
-PACKAGECONFIG_append_pn-qemu-native = " sdl"
-PACKAGECONFIG_append_pn-nativesdk-qemu = " sdl"
+PACKAGECONFIG:append:pn-qemu-native = " sdl"
+PACKAGECONFIG:append:pn-nativesdk-qemu = " sdl"
 #ASSUME_PROVIDED += "libsdl-native"
 
 # CONF_VERSION is increased each time build/conf/ changes incompatibly and is used to
@@ -223,17 +223,17 @@ PACKAGECONFIG_append_pn-nativesdk-qemu = " sdl"
 CONF_VERSION = "1"
 
 # Include SystemD and SystemCTL
-DISTRO_FEATURES_append = " systemd"
+DISTRO_FEATURES:append = " systemd"
 VIRTUAL-RUNTIME_init_manager = "systemd"
 VIRTUAL-RUNTIME_initscripts = "systemd-compat-units"
 DISTRO_FEATURES_BACKFILL_CONSIDERED = "sysvinit"
 
 # Added "virtualization" layer to support for building Xen, KVM, Libvirt, and associated
 # packages necessary for constructing OE-based virtualized solutions.
-DISTRO_FEATURES_append = " virtualization"
+DISTRO_FEATURES:append = " virtualization"
 
 # Added Docker container to the image
-IMAGE_INSTALL_append = " docker python3-docker-compose"
+IMAGE_INSTALL:append = " docker python3-docker-compose"
 
 PREFERRED_PROVIDER_iasl-native = "acpica-native"
 

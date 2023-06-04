@@ -9,13 +9,13 @@ PACKAGE_ARCH = "all"
 
 inherit allarch
 
-FILES_${PN} += " ${base_libdir}/modprobe.d/* ${base_libdir}/firmware/ampak/brcm/* ${sysconfdir}/firmware/* ${systemd_system_unitdir}/* "
+FILES:${PN} += " ${base_libdir}/modprobe.d/* ${base_libdir}/firmware/ampak/brcm/* ${sysconfdir}/firmware/* ${systemd_system_unitdir}/* "
 
 INHIBIT_PACKAGE_STRIP = "1"
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
-SRC_URI_append = " file://BCM43430A1.hcd \
+FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
+SRC_URI:append = " file://BCM43430A1.hcd \
       file://BCM4345C0.hcd \
       file://brcmfmac43430-sdio.bin \
       file://brcmfmac43430-sdio.txt \

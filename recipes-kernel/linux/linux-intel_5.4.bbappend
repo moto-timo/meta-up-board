@@ -1,11 +1,11 @@
-FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
 PR := "${PR}.1"
 
 SRC_URI += " \
        file://up-board.cfg \
        file://up-board-user-config.cfg \
-       file://intel/linux-config/bsp/x86/intel-dev.scc \ 
+       file://intel/linux-config/bsp/x86/intel-dev.scc \
        file://0001-ACPI-Add-support-to-map-GPIO-resources-to-ranges.patch \
        file://0002-disable-RTS-override-on-LPSS-UART-with-Auto-Flow-Con.patch \
        file://0003-pinctrl-allow-multiple-pin-controllers-for-a-GPIO.patch \
@@ -36,7 +36,7 @@ SRC_URI += " \
        file://0028-pinctrl-core-no-need-to-check-mux-usage-on-upboard.patch \
        file://0029-upboard-fpga-support-upn-apl01-project.patch \
        file://0030-upboard-fix-NULL-pointer-after-modifying-up_spi_cs_g.patch \
-       file://0001-support-upx-tgl01-project.patch \   
+       file://0001-support-upx-tgl01-project.patch \
        file://0001-Add-the-missing-GPIO-community2.patch \
        file://0001-WMI-Add-support-for-IO-functions-of-AAEON-devices.patch \
        file://0001-ADC-Add-the-workaround-to-read-all-ADC-values.patch \
@@ -51,6 +51,6 @@ SRC_URI += " \
 "
 # replace these SRCREVs with the real commit ids once you've had
 # the appropriate changes committed to the upstream linux-yocto repo
-# SRCREV_machine_pn-linux-yocto_up-board ?= "${AUTOREV}"
-# SRCREV_meta_pn-linux-yocto_up-board ?= "${AUTOREV}"
+# SRCREV_machine:pn-linux-yocto:up-board ?= "${AUTOREV}"
+# SRCREV_meta:pn-linux-yocto:up-board ?= "${AUTOREV}"
 

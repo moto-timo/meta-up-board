@@ -3,7 +3,7 @@
 #include <fcntl.h>
 #include <string.h>
 #include <unistd.h>
-#include <dirent.h> 
+#include <dirent.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 
@@ -95,8 +95,8 @@ int gpio_sysfs(int argc, char *argv[])
 	char data_char = 0;
 
 	sprintf(buf, F81534_GPIO_TARGET, argv[1]);
-	
-	fd = open(buf, O_RDWR); 
+
+	fd = open(buf, O_RDWR);
 	if (fd < 0) {
 		perror("Open Failed");
 		return error_open_sysfs_gpio_fail;
@@ -123,7 +123,7 @@ int gpio_sysfs(int argc, char *argv[])
 
 	printf("Set to: %s\n", m_pcStringArray[data]);
 
-	return error_no_error;	
+	return error_no_error;
 }
 
 int gpio_gpiolib(int argc, char *argv[])
@@ -166,18 +166,18 @@ int gpio_gpiolib(int argc, char *argv[])
 	closedir(d);
 	gpio_base = atoi(gpiolib_set);
 
-	do {	
+	do {
 		fd_export = open(GPIOLIB_EXPORT, O_WRONLY);
 		if (fd_export < 0) {
 			fprintf(stderr, "open gpiolib export failed\n");
 			ret = error_open_gpiolib_export_fail;
 		}
-		
+
 		fd_unexport = open(GPIOLIB_UNEXPORT, O_WRONLY);
 		if (fd_unexport < 0) {
 			fprintf(stderr, "open gpiolib unexport failed\n");
 			ret = error_open_gpiolib_unexport_fail;
-		}	
+		}
 
 		for (i = 0; i < 3; ++i) {
 			sprintf(buf, "%d", gpio_base + i);
@@ -207,10 +207,10 @@ int gpio_gpiolib(int argc, char *argv[])
 		}
 
 		ret = error_no_error;
-		
+
 	}while(0);
 	close(fd_export);
-	close(fd_unexport);	
+	close(fd_unexport);
 
 	return ret;
 }
@@ -219,7 +219,7 @@ int main(int argc, char *argv[])
 {
 	int ret = 0;
 	char buf[128];
-	
+
 	if (argc < 3) {
 		usage(argv);
 		return error_arg_less_than_3;
