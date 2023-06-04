@@ -20,10 +20,10 @@ do_install:append:class-target:x86-64() {
 ###
 
 #fix comma issue
-python(){
-    dri = d.getVar('DRIDRIVERS')
-    d.setVar('DRIDRIVERS', dri.strip(','))
-
-    vulk = d.getVar('VULKAN_DRIVERS')
-    d.setVar('VULKAN_DRIVERS', vulk.strip(','))
-}
+#python(){
+#    dri = d.getVar('DRIDRIVERS')
+#    d.setVar('DRIDRIVERS', dri.strip(','))
+#
+#    vulk = d.getVar('VULKAN_DRIVERS')
+#    d.setVar('VULKAN_DRIVERS', vulk.strip(','))
+#}
